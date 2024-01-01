@@ -1,0 +1,14 @@
+Package.json
+ - is a configuration for npm
+
+ Two types of dependencies
+ Dev dependencies - Used for only developments Ex: npm i -D packagename
+ Normal dependencies - Used for all Productions
+
+ Tilde - ~version “Approximately equivalent to version” - Install will update with Minor patch version
+ Caret - ^version “Compatible with version” - Install will automatically updates with Major patch version
+
+ Package.json,  Package-lock.json
+ In summary, the package. json file focuses on project metadata and specifying the desired versions 
+ of dependencies, while the package-lock. json file ensures deterministic installations by locking the 
+ exact versions of dependencies and their dependencies
