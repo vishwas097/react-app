@@ -1,0 +1,119 @@
+Javascript is a synchronous single threaded language which means it can only executes single line at a time.
+Javascript is also known as losely typed languge or weakly typed language
+
+-- Everything in javascript happens inside execution context
+  2 components in Execution context
+- Memory component (Which is also called as variable environment)
+ which stores key: value pair, functions and variables everything,
+- Code Component (Which is also called Threas of Execution)
+ which stores codes 
+
+2 Phase while javascript code run
+Memory Creation Phase
+- Created all the variable with undefined values, and stores function as it is in Memory
+
+Code Execution Phase
+- Assigns respective values to the memory and completes the execution
+
+Call Stack
+- Javascript uses call stack to execute contexts
+
+-- How does javascript make use of call Stack? 
+Javascript inserts global execution context to stack and whenever the new excution context is created it keeps pushing
+the execution context to stack, So in respective order the javascript code will be executed
+This is also called as order of execution.
+
+-- Javascript Hoisting
+- This works because of execution context, If we recall we have two execution context, where first we will 
+create variable as undefined and functions as it is in memory or variable creation phase, When the actual code
+starts to executes we will already have all the variables and functions created in memory creation phase with undefined 
+values, So we will not get error, instead get undefined. Incase of functions, as we store the function itself in 
+memory creation phase, The functions gets executed mostly.
+For ex, If we are using arrow functions, which will be considered as variables and in memory creation phase, It will 
+be stored as undefined, which is the reason we will not be able to get actual execution instead we get undefined.
+
+2 Golden Rules:
+1. Variable declarations are scanned and are made undefined
+2. Function declarations are scanned and are made available
+
+-- Function invokation and variable environment 
+
+-- Whenever any javascript file runs, A Global Execution context will be created and Global object will be created which
+is Window also 'this' keyword will be created
+
+-- Scope - is where you can access specific funtion or variable.
+-- Lexical Environment - is a local memory along with lexical environment of the parent.
+-- Scope chain - is a chain of all lexical environment and parent references.
+
+-- Let and Const declaration are hoisted as similar to var but it will be in temporal dead zone
+-- Temporal Dead zone is a specific period in the execution of javascript code where variables declared
+with let and const exists but cannot be accessed or assigned any value.
+Because let and const decalaration will be done out of global scope where var declaration or hoisting done in 
+global scope. Accessing or using variable will result in REFERENCE ERROR in this case.
+
+--Block or compound statement - {}
+Block is mainly used where javascript expects single statement but we want to execute multiple lines of codes.
+Let and Const value hoisted inside a block scope. Where var is hoisted inside Global Scope.
+
+For example - 
+{
+  let a = 10;
+  const b = 20;
+  var c = 30;
+}
+Global Scope : {
+  c : undefined
+}
+Block Scope : {
+  a : undefined,
+  b : undefined
+}
+
+-- Shadowing and Illegal Shadowing
+
+-- Closure - A closure is the combination of a function bundled together with references to its surrounding
+state(the lexical environment). In other words, a closure gives you access to an outer functions scope from
+an inner function
+Advantages of closure
+-- Module patterns, Function currying, Memos, once, Data hiding and encapsulation
+
+
+//Function Statement aka Function decaration
+function a() {
+  console.log("a called");
+}
+
+//Function Expression
+var b = function() {
+  console.log("b called");
+}
+
+//Difference btn function expression and function statement
+Hoisting works in function statement where as in function expression hoisting will treat b as any variable so accessing will through not defined error
+
+//Anonymous function
+Functions with no name is anonymous function, It is usually used in assigning function to variable as value.
+function () {
+
+}
+
+//Named Function Expression
+var b = function xyz() {
+  console.log()
+}
+
+//Parameter and Arguments
+function abc(param1, param2) {
+
+}
+
+abc(arg1, arg2);
+
+//First class functions
+Passing one function as Argument to a function and using as parameter is called first class functions.
+Or the ability to use functions as values is called First class functions.
+
+//Callbacks
+  
+
+

@@ -4,6 +4,7 @@ Package.json
  Two types of dependencies
  Dev dependencies - Used for only developments Ex: npm i -D packagename
  Normal dependencies - Used for all Productions
+ Transitive Dependencies - A library depending on other dependencies to complete the job
 
  Tilde - ~version “Approximately equivalent to version” - Install will update with Minor patch version
  Caret - ^version “Compatible with version” - Install will automatically updates with Major patch version
@@ -12,3 +13,92 @@ Package.json
  In summary, the package. json file focuses on project metadata and specifying the desired versions 
  of dependencies, while the package-lock. json file ensures deterministic installations by locking the 
  exact versions of dependencies and their dependencies
+
+
+ Parcel - Webpck
+
+ - Dev build
+ - Local Server
+ - HMR - Hot Module Replacement
+ - File watching Algorithm - Written in c++
+ - caching and providing faster build
+ - Image Optimization
+ - Minification
+ - Bundling 
+ - Compressing
+ - Code spliting
+ - Differential bundling 
+ - Diagnostic
+ - Error handling 
+ - Tree shaking - remove unused code 
+ - Different build for dev and prod
+
+ JSX 
+ Javascript syntax is easier to create react elements
+ JSX is not HTML in javascript, It is  HTML/XML-like Syntax
+
+ Javascript will not understand JSX, Parcel will transpile jsx to reaxt code using babel 
+ 
+ ==> jsx => babel transpile to react.createElement => React(Object) => Render(HTML)
+
+Attributes in JSX should be a camelCase
+
+React components
+ - Class Components - Old way
+ - Funtional Components - New way - Is a funtion returns piece of JSX code or react element 
+
+ Component Composition
+ - Composing two components to one another
+
+ JSX - { data } - JSX sanitizes html/value itself, Which is why it is powerful prevents cross-site scripting
+
+ Config driven UI - A website driven by data/config 
+
+
+ Two types of exports/Import 
+ - Named exports
+     - import { name/variable } from '/file'; export const name/variable = {}; 
+     - If you have to export multiple constants or functions.
+ - Default exports 
+   - import name/variable from '/file' - export default name/variable;
+   - If we have to export one item from a file. 
+
+React Element
+  - Plain JS Object
+
+Functional Component 
+   - Normal JS function
+
+React Hooks
+    - Normal JS Utility functions
+Multiple React Hooks 
+ - 1 - useState() 
+ - 2 - useEffect() 
+
+ Diff between normal and state varuable
+ let listOfResturants = [];
+ const [listOfResturants] = useState([]);
+
+ Whenever state variable updates react re render the component
+
+Reconciliation Algorithm is also known as React fibre
+What is dom?
+<div> <div> <img /> </div> </div>
+
+ - Virtual DOM is representation of actual DOM
+
+ - Whenever react finds changes in state variable, React checks the difference in Virtual DOM (Which is React Objext ) a
+ and then updates the actual DOM(HTML)
+ - This is why it is faster as to compare the objects is easier than HTML
+ - React is fast because react is doing efficient DOM manipulation using virtual DOM
+ - Reactt has diff algorithm which compares difference in virtual dom to work faster
+
+ -- Monolith Architecture
+ One big project which handles UI, backend, DB everything together.
+
+-- Seperation of concern or Single responsibility principle 
+ Where every services have single responsibilities
+
+ Whenever state variables updates, react triggers reconciliation cycle(Re-render the component)
+
+React is faster because react fibre compares virtual DOMs and only update those where there is chaanges which is why it is faster. DOM manipulation is done beautifully.
