@@ -102,3 +102,21 @@ What is dom?
  Whenever state variables updates, react triggers reconciliation cycle(Re-render the component)
 
 React is faster because react fibre compares virtual DOMs and only update those where there is chaanges which is why it is faster. DOM manipulation is done beautifully.
+
+
+useEffect
+ - When we dont pass dependency array to use effect, UseEffect will be called on every re render of component.
+ - If dependency array is empty = [] => useEffect is called on initial render(just once)
+ - If dependency array has values [someStateVariable] => then it will be called every time the stateVariable updated with initial render.
+
+ useState
+ - The state variables are meant to be created inside the functional components on the higher level at first level.
+ THis is the best practice.
+
+ React-Router-DOM
+ - createBrowserRouter
+ - Link - Behind the scene link will still use anchor tag
+ - RouterProvider - <RouterProvider router={appRouter} />
+ - useParams
+
+ React is called single page application because behind the scenes we will have single page and according to the routes the components will be added or removed accordingly in DOM.

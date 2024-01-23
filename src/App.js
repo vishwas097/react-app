@@ -2,18 +2,48 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+import ResturantDetails from "./components/ResturantDetails";
 const Applayout = () => {
   return (
     <div>
       <Header />
-      <Body />
+      <Outlet />
     </div>
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Applayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/resturants/:resId",
+        element: <ResturantDetails />,
+      }
+    ],
+    errorElement: <Error />
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Applayout />);
+root.render(<RouterProvider router={appRouter} />);
 
 //Rendering JSX and also different types of rendering functional components
 // const Title = <h1 className="heading">Title JSX</h1>;
