@@ -3,12 +3,14 @@ import ResturantCard from "./ResturantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
   const [filteredListOfResturants, setFilteredListOfResturants] = useState([]);
   const [isTopRated, setIsTopRated] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const online = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -26,6 +28,8 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  if(!online) return <h1>You are offline!</h1>
 
   return listOfResturants?.length === 0 ? (
     <Shimmer />
@@ -83,7 +87,7 @@ const Body = () => {
       </div>
       <div className="resturant-container">
         {filteredListOfResturants?.map((rest) => (
-          <Link to={"/resturants/" + rest?.info?.id} key={rest?.info?.id}>
+          <Link to={"/resturants/" + rest?.info?.id} key={rest?.info?.id} className="no-decoration">
             <ResturantCard resData={rest} />
           </Link>
         ))}
