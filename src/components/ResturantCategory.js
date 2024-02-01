@@ -5,7 +5,7 @@ const ResturantCategory = (props) => {
   const [expand, setExpand] = useState(props.index == 0 ? true : false);
   const category = props.category.card.card;
   return (
-    <div className="w-6/12 mx-auto my-10 p-4 shadow-2xl">
+    <div className="w-6/12 mx-auto my-8 p-4 shadow-2xl">
       <div
         className="m-2 flex justify-between"
         onClick={() => {

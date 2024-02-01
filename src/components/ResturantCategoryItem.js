@@ -10,11 +10,13 @@ const ResturantCategoryItem = (props) => {
           <span className="text-md font-medium">
             {data.name} - {data.isVeg ? "Veg" : "Non Veg"}
           </span>
-          <p className="text-md font-medium">₹{data.price / 100}</p>
-          <p className="text-md font-normal">{data.description}</p>
+          <p className="text-md font-medium">
+            ₹{data.price ? data.price / 100 : data.defaultPrice / 100}
+          </p>
+          <p className="font-light">{data.description}</p>
         </div>
         <div>
-          <img src={REST_LOGO + data.imageId} className="w-20" />
+          <img src={REST_LOGO + data.imageId} className="w-20 rounded-lg" />
         </div>
       </div>
     </div>

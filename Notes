@@ -148,3 +148,6 @@ On demand loading
 
 Lazy loading syntax
 const componentName = lazy(()=> import('path'));
+
+Higher order component
+It is a function which takes a component, tweeks it and return updated component.
