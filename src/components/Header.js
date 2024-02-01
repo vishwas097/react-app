@@ -2,37 +2,38 @@ import { HEADER_LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
-const online = useOnlineStatus();
+  const online = useOnlineStatus();
 
   return (
-      <div className="header">
-        <div className="logo-container">
-          <img
-            className="logo"
-            alt="logo"
-            src={HEADER_LOGO}
-          />
-          
-        </div>
-        <div className="nav-items">
-          <ul>
-            <li>
-              <span>Online: {online ? '✅' : '❗'}</span>
-            </li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="about">About US</Link>
-            </li>
-            <li>
-              <Link to="contact">Contact US</Link>
-            </li>
-            <li>Cart</li>
-          </ul>
-        </div>
+    <div className="header flex  justify-center items-center bg-[#f1f6f1]">
+      <div>
+        <img className="w-30  h-[6.5rem] p-4" alt="logo" src={HEADER_LOGO} />
       </div>
-    );
-  };
+      <div className="flex">
+        <ul className="flex m-5 justify-between">
+          <li className="m-2 p-2">
+            <span>Online: {online ? "✅" : "❗"}</span>
+          </li>
+          <li className="m-2 p-2">
+            <Link className="cursor-pointer" to="/">
+              Home
+            </Link>
+          </li>
+          <li className="m-2 p-2">
+            <Link className="cursor-pointer" to="about">
+              About US
+            </Link>
+          </li>
+          <li className="m-2 p-2">
+            <Link className="cursor-pointer" to="contact">
+              Contact US
+            </Link>
+          </li>
+          <li className="m-2 p-2">Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-  export default Header;
+export default Header;

@@ -1,20 +1,33 @@
-import { REST_LOGO } from '../utils/constants';
+import { REST_LOGO } from "../utils/constants";
 
 const ResturantCard = (props) => {
-    // const { resData } = ;
-    const { name, cuisines, avgRating, costForTwo } = props.resData.info;
+  // const { resData } = ;
+  const { name, cuisines, avgRating, costForTwo } = props.resData.info;
+  return (
+    <div className="m-4 p-4 rounded-lg bg-gray-100 w-60 hover:bg-gray-200">
+      <img
+        className="rounded-2xl"
+        src={REST_LOGO + props.resData.info.cloudinaryImageId}
+      />
+      <h2>{name}</h2>
+      <h5 className="resturant-cuisines">{cuisines?.join(", ")}</h5>
+      <h5>{avgRating} stars</h5>
+      <h5>{costForTwo}</h5>
+    </div>
+  );
+};
+
+export const withPromotedResturant = (ResturantCard) => {
+  return (props) => {
     return (
-      <div className="resturant-card">
-        <img
-          className="resturant-logo"
-          src={REST_LOGO + props.resData.info.cloudinaryImageId}
-        />
-        <h2>{name}</h2>
-        <h5 className='resturant-cuisines'>{cuisines?.join(", ")}</h5>
-        <h5>{avgRating} stars</h5>
-        <h5>{costForTwo}</h5>
+      <div>
+        <label className="absolute m-2 p-2 bg-black text-white rounded-xl">
+          Promoted
+        </label>
+        <ResturantCard {...props} />
       </div>
     );
   };
+};
 
-  export default ResturantCard;
+export default ResturantCard;
