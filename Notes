@@ -151,3 +151,36 @@ const componentName = lazy(()=> import('path'));
 
 Higher order component
 It is a function which takes a component, tweeks it and return updated component.
+
+Controlled and Uncontrolled Components
+If the state control of child component is handled by parent component, then it is called controlled component.
+
+Lifting the state up
+
+Avoid Prop Drilling
+
+React Context
+Used to createContext globally where you can update the context from anywhere and you can use the context anywhere
+Main use is to avoid component prop drilling, where you have to pass same props to every nested child components and also kind of global store offered by react
+
+
+Redux 
+FYI - Redux like library - Zustand
+- Redux is not mandatory, We can use useContext in most of the cases
+Where we have huge app with multiple child parent component with huge data read/write operation we can use redux.
+Redux offers easy debugging
+
+Slices
+- Click on add -> Dispatches an action and it calls a reducer fumction and it updates slice of Redux store
+
+Selector 
+- To read data from redux store slice, Selector will read and provide data to components, which is also called as subscribing to store.
+
+Redux toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to app
+- create Slice(cart slice)
+- dispatch action
+
+ 

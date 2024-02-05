@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useResturantMenu from "../utils/useResturantMenu";
 import ResturantCategory from "./ResturantCategory";
+import { useState } from "react";
 
 const ResturantDetails = () => {
   const { resId } = useParams();
-
+  const [expand, setExpand] = useState(0);
   const resDetails = useResturantMenu(resId);
 
   if (resDetails == null) return <Shimmer />;
@@ -32,7 +33,8 @@ const ResturantDetails = () => {
             <ResturantCategory
               key={category?.card?.card?.title}
               category={category}
-              index={index}
+              expand={index == expand && true}
+              setExpand = {() => setExpand(expand === index ? null : index)}
             />
           ))}
         </div>

@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { REST_LOGO } from "../utils/constants";
+import UserContext from "../utils/userContext";
 
 const ResturantCard = (props) => {
+  const { loggedInUser } = useContext(UserContext);
   // const { resData } = ;
   const { name, cuisines, avgRating, costForTwo } = props.resData.info;
   return (
@@ -13,6 +16,7 @@ const ResturantCard = (props) => {
       <h5 className="resturant-cuisines">{cuisines?.join(", ")}</h5>
       <h5>{avgRating} stars</h5>
       <h5>{costForTwo}</h5>
+      <h5>User : {loggedInUser}</h5>
     </div>
   );
 };

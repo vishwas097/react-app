@@ -1,8 +1,9 @@
 import ResturantCard, { withPromotedResturant } from "./ResturantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
@@ -11,6 +12,9 @@ const Body = () => {
   const [searchInput, setSearchInput] = useState("");
   const online = useOnlineStatus();
   const ResturantCardPromoted = withPromotedResturant(ResturantCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
+  console.log(useContext(UserContext))
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -37,7 +41,7 @@ const Body = () => {
       <div className="flex justify-center items-center">
         <div className="m-4">
           <input
-            className="border border-solid border-black"
+            className="border border-solid border-black p-2"
             type="text"
             value={searchInput}
             onChange={(e) => {
@@ -83,6 +87,15 @@ const Body = () => {
               Filter top resturants
             </button>
           )}
+        </div>
+        <div>
+          <input
+            className="border border-black p-2"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div>
