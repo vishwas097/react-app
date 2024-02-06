@@ -1,7 +1,15 @@
+import { useDispatch } from "react-redux";
 import { REST_LOGO } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ResturantCategoryItem = (props) => {
   const data = props.info;
+  const dispatch = useDispatch();
+
+  const hanldeEvent = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <div className=" border-b-4 m-6">
       <div className="flex p-4 justify-between">
@@ -16,7 +24,13 @@ const ResturantCategoryItem = (props) => {
           <p className="font-light">{data.description}</p>
         </div>
         <div>
-          <img src={REST_LOGO + data.imageId} className="w-20 rounded-lg" />
+        <img src={REST_LOGO + data.imageId} className="w-48 rounded-lg" />
+          <button
+            className="p-2 mx-10 rounded-lg bg-black text-white shadow-lg"
+            onClick={() => hanldeEvent(data)}
+          >
+            Add +
+          </button>
         </div>
       </div>
     </div>

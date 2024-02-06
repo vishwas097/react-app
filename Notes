@@ -183,4 +183,9 @@ Redux toolkit
 - create Slice(cart slice)
 - dispatch action
 
+Whenever using selector, we need to subscribe to right portion of the store, which helps in performance improments and it is very important .
+
+RTK query  
+
+
  

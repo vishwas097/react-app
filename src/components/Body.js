@@ -13,7 +13,6 @@ const Body = () => {
   const online = useOnlineStatus();
   const ResturantCardPromoted = withPromotedResturant(ResturantCard);
   const { loggedInUser, setUserName } = useContext(UserContext);
-  console.log(useContext(UserContext))
 
   useEffect(() => {
     fetchData();
