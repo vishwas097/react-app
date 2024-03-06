@@ -9,7 +9,7 @@ const cartSlice = createSlice({
     addItem: (store, action) => {
       store.items.push(action.payload);
     },
-    removeItem: (store, action) => {
+    removeItem: (store) => {
       store.items.pop();
     },
     clearCart: (store) => {

@@ -23,6 +23,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9260193&lng=77.5167955&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
+    console.log(json);
     setListOfResturants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -42,6 +43,7 @@ const Body = () => {
           <input
             className="border border-solid border-black p-2"
             type="text"
+            data-testid="searchInp"
             value={searchInput}
             onChange={(e) => {
               setSearchInput(e?.target?.value);
@@ -51,7 +53,7 @@ const Body = () => {
             className="px-4 py-2 mx-4 bg-green-200 rounded-lg"
             onClick={() => {
               setFilteredListOfResturants(
-                listOfResturants.filter((rest) =>
+                listOfResturants?.filter((rest) =>
                   rest.info.name
                     .toLowerCase()
                     .includes(searchInput.toLowerCase())

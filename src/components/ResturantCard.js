@@ -4,10 +4,10 @@ import UserContext from "../utils/userContext";
 
 const ResturantCard = (props) => {
   const { loggedInUser } = useContext(UserContext);
-  // const { resData } = ;
   const { name, cuisines, avgRating, costForTwo } = props.resData.info;
   return (
-    <div className="m-4 p-4 rounded-lg bg-gray-100 w-60 hover:bg-gray-200">
+    <div data-testid="resCard"
+    className="m-4 p-4 rounded-lg bg-gray-100 w-60 hover:bg-gray-200">
       <img
         className="rounded-2xl"
         src={REST_LOGO + props.resData.info.cloudinaryImageId}
@@ -16,7 +16,6 @@ const ResturantCard = (props) => {
       <h5 className="resturant-cuisines">{cuisines?.join(", ")}</h5>
       <h5>{avgRating} stars</h5>
       <h5>{costForTwo}</h5>
-      <h5>User : {loggedInUser}</h5>
     </div>
   );
 };
